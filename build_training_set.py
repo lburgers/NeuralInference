@@ -11,22 +11,22 @@ DEBUG = False
 rules = ['OR', 'AND', 'THEN', "OBJ"]
 total_objects = 15
 objects = list(string.ascii_uppercase)[:total_objects] # first total_objects uppercase letters 
-
-# FULL SIZE DATA SET
-map_count = 1000
-bias_count = 50
-desire_count = 100
-starting_point_count = 100
-agent_count = 100
 grid_size = 100
 
-# SMALLER SIZE DATA SET
-# map_count = 1
-# bias_count = 1
-# desire_count = 10
-# starting_point_count = 3
-# agent_count = 20
+# FULL SIZE DATA SET
+# map_count = 1000
+# bias_count = 50
+# desire_count = 100
+# starting_point_count = 100
+# agent_count = 100
 # grid_size = 100
+
+# SMALLER SIZE DATA SET
+map_count = 1
+bias_count = 1
+desire_count = 10
+starting_point_count = 3
+agent_count = 20
 
 cost_matrix = np.zeros((grid_size, grid_size))
 
@@ -35,7 +35,6 @@ cost_matrix = np.zeros((grid_size, grid_size))
 # idea - new CFG rules could be related to positional arangement (whichever is above)
 	# inclusive or
 
-# add 1 to everything so that -1 doesn't mess up net
 # read machine tom paper
 	# copy their method for object/starting representations
 	# then show one layer w/ trajectory
@@ -54,7 +53,7 @@ def generate_map():
 		if obj not in selected_objects:
 			obj_locs[obj] = None
 		else:
-			obj_locs[obj] = np.random.randint(1, grid_size)
+			obj_locs[obj] = np.random.randint(0, grid_size)
 
 	return obj_locs
 
