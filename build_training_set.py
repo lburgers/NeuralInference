@@ -4,6 +4,10 @@ from nltk import Tree
 import numpy as np
 import random
 import string
+import sys
+
+# used when running multiple processes so that they don't overwrite same files
+process_number = int(sys.argv[1])
 
 HUMAN_READABLE = False
 DEBUG = False
@@ -13,35 +17,24 @@ total_objects = 15
 objects = list(string.ascii_uppercase)[:total_objects] # first total_objects uppercase letters 
 grid_size = 100
 
+
+# (maybe eventually use full amount from prior commits)
 # FULL SIZE DATA SET
-# map_count = 1000
-# bias_count = 50
-# desire_count = 100
-# starting_point_count = 100
-# agent_count = 100
-# grid_size = 100
+map_count = 50
+bias_count = 25
+desire_count = 50
+starting_point_count = 50
+agent_count = 50
+grid_size = 100
 
 # SMALLER SIZE DATA SET
-map_count = 1
-bias_count = 1
-desire_count = 10
-starting_point_count = 3
-agent_count = 20
+# map_count = 1
+# bias_count = 1
+# desire_count = 10
+# starting_point_count = 3
+# agent_count = 20
 
 cost_matrix = np.zeros((grid_size, grid_size))
-
-# NOTES/IDEAS:
-
-# idea - new CFG rules could be related to positional arangement (whichever is above)
-	# inclusive or
-
-# read machine tom paper
-	# copy their method for object/starting representations
-	# then show one layer w/ trajectory
-
-# figure out how many epochs to run w/o over fitting - use some sort of visualization
-# getting a sense of the error that its making
-	# research which error function to use (cross entropy)
 
 def generate_map():
 	# CONFIRM: is this the right way to sample? (poisson?)
@@ -238,7 +231,7 @@ def save_to_csv(obj_locs, starting_points, rule_bias, obj_bias, actions, states,
 
 			row_index += 1
 
-	np.savetxt("training_data/%d.csv" % training_data_file_count, table, delimiter=",")
+	np.savetxt("training_data/%d_%d.csv" % process_number, training_data_file_count, table, delimiter=",")
 
 obs = LoadObserver("Map", 0, 0)
 training_data_file_count = 0
