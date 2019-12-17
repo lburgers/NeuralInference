@@ -1,0 +1,118 @@
+Video: flee_w_memory
+
+True sprite params:
+(planner:'search', goal:'avatar', direction:'avoid', lost function:'stationary',
+ Sight limit: 10, oriented: False, memory:True, can see through walls: False)
+
+Marginal probabilites:
+PLANNER:
+search   1.0
+random   0.0
+stationary   0.0
+
+GOAL:
+avatar   1.0
+
+DIRECTION:
+approach   0.0
+avoid   1.0
+
+LOST FUNCTION
+random   0.0
+stationary   1.0
+
+SIGHT LIMIT:
+5   0.0
+10   0.5
+25   0.5
+
+ORIENTED:
+True   0.0
+False   1.0
+
+MEMORY:
+True   1.0
+False   0.0
+
+SEE THROUGH WALLS:
+True   0.0
+False   1.0
+============================================================
+Video: search_w_memory
+
+True sprite params:
+(planner:'search', goal:'avatar', direction:'approach', lost function:'stationary',
+ Sight limit: 10, oriented: False, memory:True, can see through walls: False)
+
+Marginal probabilites:
+PLANNER:
+search   1.0
+random   0.0
+stationary   0.0
+
+GOAL:
+avatar   1.0
+
+DIRECTION:
+approach   1.0
+avoid   0.0
+
+LOST FUNCTION:
+random   0.0
+stationary   1.0
+
+SIGHT LIMIT:
+5   0.0
+10   0.5
+25   0.5
+
+ORIENTED:
+True   0.5
+False   0.5
+
+MEMORY:
+True   1.0
+False   0.0
+
+SEE THROUGH WALLS:
+True   0.0
+False   1.0
+======================================================================
+Video: search_w_no_memory
+True sprite params:
+(planner:'search', goal:'avatar', direction:'approach', lost function:'stationary',
+ Sight limit: 10, oriented: False, memory:False, Can see through walls: False)
+
+Marginal probabilites:
+PLANNER:
+search   1.0
+random   0.0
+stationary   0.0
+
+GOAL:
+avatar   1.0
+
+DIRECTION:
+approach   1.0
+avoid   0.0
+
+LOST FUNCTION:
+random   0.0
+stationary   1.0
+
+SIGHT LIMIT:
+5   0.0
+10   0.5
+25   0.5
+
+ORIENTED:
+True   0.5
+False   0.5
+
+MEMORY:
+True   0.0
+False   1.0
+
+SEE THROUGH WALLS:
+True   0.0
+False   1.0
